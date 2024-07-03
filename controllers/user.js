@@ -1,5 +1,5 @@
 import { User } from "../models/user.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { sendcookie } from "../utils/feature.js";
 import ErrorHandler from "../middleware/error.js";
 
@@ -13,7 +13,7 @@ export const login = async (req, res, next) => {
 
     if (!user) return next(new ErrorHandler("Invalid Email or Password", 400));
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcryptjs.compare(password, user.password);
 
     if (!isMatch) return next(new ErrorHandler("Invalid id or Password", 400));
 
@@ -32,7 +32,7 @@ export const register = async (req, res) => {
 
     if (user) return next(new ErrorHandler("User already Exist", 400));
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     user = await User.create({ name, email, password: hashedPassword });
 
