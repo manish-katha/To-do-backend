@@ -1,5 +1,5 @@
 import { User } from "../models/user.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { sendcookie } from "../utils/feature.js";
 import ErrorHandler from "../middleware/error.js";
 
