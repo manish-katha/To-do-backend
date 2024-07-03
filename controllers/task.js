@@ -26,6 +26,7 @@ export const getmyTask = async (req, res) => {
   try {
     const userid = req.user._id;
 
+  const task = await Task.find({ user: userid });
 
   if (task)
     return res.status(200).json({
