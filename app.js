@@ -6,6 +6,7 @@ import taskRouter from "./routes/task.js";
 import { errorMiddleware } from "./middleware/error.js";
 import cors from "cors";
 
+
 export const app = express();
 
 config({ path: "./data/config.env" });
@@ -19,7 +20,8 @@ app.use(
   })
 );
 
-console.log( process.env.FRONTEND_URL)
+console.log(process.env.PORT);
+console.log(process.env.FRONTEND_URL);
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tasks", taskRouter);
