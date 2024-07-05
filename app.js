@@ -20,6 +20,7 @@ app.use(cookieParser());
 //   })
 // );
 app.use(cors());
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tasks", taskRouter);
 
